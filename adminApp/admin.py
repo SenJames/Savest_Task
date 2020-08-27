@@ -107,67 +107,7 @@ class ProfileAdmin(admin.ModelAdmin):
 
 class ProfileDetailsAdmin(admin.ModelAdmin):
     list_display = ('users','twenty_four','fourty_eight', 'oneMth')
-    # change_list_template = 'admin/profiledetails/profiledetails_change_list.html'
-
-    #adding the functions
-    # def changelist_view(self, request, extra_context=None):
-    #     response = super().changelist_view(
-    #         request, extra_context = extra_context
-    #     )
-
-    #     # try:
-    #     #     qs = response.context_data['cl'].queryset
-    #     #     print(qs)
-        
-    #     # except (AttributeError, KeyError):
-    #     #     return response
-        
-    #     # metrics = {
-    #     #     'total' : Count('id'),
-    #     #     'twenty_four': Count('gender')         
-    #     # }
-
-    #     table_data = (
-    #         Profile.objects.annotate(date=TruncDay("date_created"))
-    #         .values("date")
-    #         .annotate(Count('id'))
-    #         .order_by("-date")
-    #     )
-    #     print(table_data)
-
-        # response.context_data['collect'] = list(
-        #     qs
-        #     .values('user')
-        #     .annotate(**metrics)
-        #     .order_by('-date_updated')
-        # )
-        # return response
-
-    # def get_queryset(self, request):
-    #     queryset = super().get_queryset(request)
-    #     # queryset = queryset.annotate(
-    #     #     _twenty_four=Count("user", distinct=True)
-    #     # )
-    #     # print(queryset.count())
-    #     # return queryset
-
-    #     diff = timezone.now() - timedelta(days=1)
-    #     two = timezone.now() - timedelta(days=2)
-    #     month = timezone.now() - timedelta(days=30)
-    #     createdOne = User.objects.filter(date_joined__gte=diff)
-    #     createdTwo = User.objects.filter(date_joined__gte=two)
-    #     createdMth = User.objects.filter(date_joined__gte=month)
-    #     queryset = {
-    #         "createdOne", createdOne,
-    #         "createdTwo", createdTwo,
-    #         "createdMth", createdMth
-    #     }
-        # result = list(chain(createdOne,createdTwo,createdMth))
-
-        # return queryset
     
-    # def twenty_four(self, obj):
-    #     return obj._twenty_four
     def users(self, obj):
         return obj.user
     
