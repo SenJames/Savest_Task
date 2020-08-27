@@ -13,16 +13,14 @@ class Profile(models.Model):
     date_created =  models.DateTimeField(auto_now_add=True, blank=True)
     date_updated = models.DateTimeField(auto_now=True, blank=True)
 
-    def twenty_four(self):
-        created_user = User.objects.count()
-        diff = timezone.now() - datetime.timedelta(days=1)
-        created = Profile.objects.filter(date_created__gte=diff)
-        print('yeah')
-        print(created)
-        return created.count()
+    # def twenty_four(self):
+    #     created_user = User.objects.count()
+    #     diff = timezone.now() - datetime.timedelta(days=1)
+    #     created = Profile.objects.filter(date_created__gte=diff)
+    #     return created.count()
         
     def __str__(self):
-        return self.gender
+        return self.user.username
 
     class Meta:
         ordering = ['-id']

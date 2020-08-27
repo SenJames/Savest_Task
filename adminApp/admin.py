@@ -19,7 +19,7 @@ from itertools import chain
 from operator import attrgetter
 
 class ProfileAdmin(admin.ModelAdmin):
-    list_display = ('gender', 'date_created', 'user', 'make_active', 'status')
+    list_display = ('user', 'date_created', 'gender', 'make_active', 'status')
     list_filter = ('date_created', 'date_updated')
     # change_list_template = 'admin/profile/profile_change_list.html'
 

@@ -22,4 +22,5 @@ admin.site.index_title = "Welcome to James Admin Portal"
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', admin.site.urls),
 ]
