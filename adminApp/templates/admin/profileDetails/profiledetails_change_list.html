@@ -1,0 +1,73 @@
+{% extends "admin/change_list.html" %}
+
+{% block content_title %}
+    <h1> User Metrics  </h1>
+{% endblock %}
+
+{% block result_list %}
+<div class=”results”>
+    <table>
+        
+    <thead>
+      <tr>
+        <th>
+          <div class="text">
+            <a href="#"></a>
+          </div>
+        </th>
+        <th>
+          <div class="text">
+            <a href="#"></a>
+          </div>
+        </th>
+        <th>
+          <div class="text">
+            <a href="#">Total</a>
+          </div>
+        </th>
+      </tr>
+    </thead>
+    <tbody>
+        <!-- {{total}} -->
+      {{result}}
+
+      <tr class="{% cycle 'row1' 'row2' %}">
+        <th>Users Registered in the Last 24 hours </th>
+        <td></td>
+        <td>
+          <strong>
+          </strong>
+        </td>
+      </tr>
+      <tr class="{% cycle 'row1' 'row2' %}">
+        <th>Users Registered in the Last 48 hours </th>
+        <td>  </td>
+        <td>  </td>
+        <td>
+          <strong>
+          {{ row.total_sales | 
+              default:0 | 
+              percentof:summary_total.total_sales }} 
+          </strong>
+        </td>
+      </tr>
+      <tr class="{% cycle 'row1' 'row2' %}">
+        <th>Users Registered in the Last 1 month </th>
+        <td> </td>
+        <td> </td>
+        <td>
+          <strong>
+          {{ row.total_sales | 
+              default:0 | 
+              percentof:summary_total.total_sales }} 
+          </strong>
+        </td>
+      </tr>
+ 
+    </tbody>
+    
+  </table>
+</div>
+{% endblock %}
+
+{% block pagination %}{% endblock %}
